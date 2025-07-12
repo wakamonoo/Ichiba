@@ -1,13 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Ichiba</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="heroSection" class="h-screen bg-red-500">
+      <div id="navSection" class="flex justify-between px-8 pt-2 bg-white">
+        <a href="index.html">
+          <img src="ichibaLogo.png" alt="logo" />
+        </a>
+        <div id="navBtn" class="flex gap-4 text-red-500">
+          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-cart-shopping"></i>
+          <i class="fa-solid fa-receipt"></i>
+        </div>
+      </div>
+    </div>
+
+    <div id="productShowcase">
+      <p class="pl-8 pt-4 text-xl font-bold uppercase">Shop now with us!</p>
+      <div id="productList"  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4"
+></div>
+    </div>
+
+    <script type="module" src="src/firebaseAuth.js"></script>
+    <script type="module" src="src/productDisplay.js"></script>
   </body>
 </html>
