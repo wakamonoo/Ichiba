@@ -1,9 +1,9 @@
-// Import the functions you need from the SDKs you need
+// ────────────────────────────────────────── import
 import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+ 
+// ────────────────────────────────────────── firebaseConfig
 const firebaseConfig = {
   apiKey: "AIzaSyBumCNQ6ZZvB1_pS_Ru5swuONr6lOzruf4",
   authDomain: "ichiba-765b8.firebaseapp.com",
@@ -14,8 +14,25 @@ const firebaseConfig = {
   measurementId: "G-ZZ3D31Z5SD"
 };
 
-// Initialize Firebase
+// ────────────────────────────────────────── fiebaseInitialization
 const app = getApps().lenth? getApss()[0] : initializeApp(firebaseConfig);
 getAnalytics(app);
 
-export default app;
+// ────────────────────────────────────────── authHelpers
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+export async function googleSignIn() {
+  const { user } = await signInWithPopup(auth, provider);
+  return user;
+}
+
+export function googleSignOut() {
+  return signOut(auth);
+}
+
+export function onUserChanged(cb) {
+  return onAuthStateChanged(auth, cb);
+}
+
+export {auth, app};

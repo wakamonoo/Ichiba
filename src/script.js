@@ -1,5 +1,5 @@
-//________loginModal
-//________openModal
+// ──────────────────────────────────────────loginModal
+// ──────────────────────────────────────────openodal
 const modal = document.querySelector("#loginModal");
 
 document.querySelector("#openModal").addEventListener("click", () => {
@@ -7,7 +7,7 @@ document.querySelector("#openModal").addEventListener("click", () => {
   modal.classList.add("flex");
 });
 
-//________closeModal
+// ──────────────────────────────────────────closeModal
 document.querySelector("#closeModal").addEventListener("click", () => {
   modal.classList.add("hidden");
   modal.classList.remove("flex");
