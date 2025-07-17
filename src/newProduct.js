@@ -4,11 +4,11 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 const db = getFirestore(app);
 
 // ──────────────────────────────────────────submitNewProduct
-const productImage = document.querySelector("#productImage");
-const productTitle = document.querySelector("#productTitle");
-const productPrice = document.querySelector("#productPrice");
+const productImage = document.querySelector('#productImage');
+const productTitle = document.querySelector('#productTitle');
+const productPrice = document.querySelector('#productPrice');
 
-document.querySelector("#submitProduct").addEventListener("click", async () => {
+document.querySelector('#submitProduct').addEventListener("click", async () => {
   const file = productImage.files[0];
   const title = productTitle.value.trim();
   const price = Number(productPrice.value) * 100;
@@ -41,8 +41,11 @@ document.querySelector("#submitProduct").addEventListener("click", async () => {
 
 async function uploadToImgur(file) {
   const clientId = import.meta.env.VITE_IMGUR_CLIENT_ID;
+  console.log("Client ID:", clientId);
+
   const formData = new FormData();
   formData.append("image", file);
+  
 
   const res = await fetch("https://api.imgur.com/3/image", {
     method: "POST",
